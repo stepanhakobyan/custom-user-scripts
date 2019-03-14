@@ -6,8 +6,9 @@
 // ==/UserScript==
 
 window.addEventListener('load', function() {
-    const title = window.document.title;  //like this "1591_.000"
-    const reviewId = title.substring(0, title.indexOf("_"));   //got "1591"
+    //const title = window.document.title;  //like this "1591_.000"
+    //const reviewId = title.substring(0, title.indexOf("_"));   //got "1591"
+    const reviewId = WPQ2ListData.Row[0].ID;
     
     fetch(`https://spserver2016.armsoft.am/_api/Web/Lists(guid'2ff3c593-f85c-41fe-a5c1-3ff11cfe455f')/items(${reviewId})`, 
             { headers: { "Accept":"application/json;odata=verbose" } })
