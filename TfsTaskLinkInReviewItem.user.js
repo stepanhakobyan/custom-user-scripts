@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name Tfs task link in review item
 // @namespace Violentmonkey Scripts
-// @match https://spserver2016.armsoft.am/Lists/Review/Flat.aspx
+// @match https://spserver2016.armsoft.am/Lists/Review/Flat.aspx*
 // @grant none
 // ==/UserScript==
 
