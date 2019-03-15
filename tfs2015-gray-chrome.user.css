@@ -1,0 +1,35 @@
+/* ==UserStyle==
+@name        TFS2015 Gray Chrome
+@namespace   Hmm1
+@version     1.0.0
+@homepageURL https://github.com/stepanhakobyan/custom-user-scripts
+@updateURL   https://github.com/stepanhakobyan/custom-user-scripts/raw/master/tfs2015-gray-chrome.user.css
+@author      sts
+==/UserStyle== */
+@-moz-document url-prefix("http://tfserver:8080/tfs/Armsoft/") {
+    .work-item-form-main .work-item-control.chromeBorder .combo,
+    .work-item-form-main .work-item-control.chromeBorder.identity-picker-container:not(.readonly),
+    .work-item-control > .input-text-box {
+        border: 1px solid gray;
+    }
+    
+    .section-container,
+    .work-item-form-main-core,
+    .hotkey-section {
+        background-color: #d8d8d8;
+    }
+    
+    .left-section,
+    .right-section {
+        background-color: #bbbbbb;
+    }
+    
+    /* body, .hub-content, .vss_13, .content-section, .main, .main-container */
+    .content-section {
+        background-color: #d8d8d8;
+    }
+    
+    .handleBar {
+        border: 1px solid black !important;
+    }
+}
