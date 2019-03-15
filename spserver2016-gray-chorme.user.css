@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name        Sharepoint2016 Gray Chorme
 @namespace   Hmm1
-@version     1.1.1
+@version     1.1.2
 @homepageURL https://github.com/stepanhakobyan/custom-user-scripts
 @updateURL   https://github.com/stepanhakobyan/custom-user-scripts/raw/master/spserver2016-gray-chorme.user.css
 @author      sts
@@ -28,6 +28,10 @@
         background-color: white;
     }
     div.s4-wpcell.ms-webpartzone-cell.ms-webpart-cell-vertical.ms-fullWidth > div.ms-webpart-chrome.ms-webpart-chrome-vertical.ms-webpart-chrome-fullWidth > div.ms-WPBorderBorderOnly {
+        background-color: white;
+    }
+
+    table.ms-listviewtable > tbody > tr:nth-child(2n+1) {
         background-color: white;
     }
 }
