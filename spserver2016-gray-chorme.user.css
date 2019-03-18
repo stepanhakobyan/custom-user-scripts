@@ -1,12 +1,17 @@
 /* ==UserStyle==
 @name        Sharepoint2016 Gray Chorme
 @namespace   Hmm1
-@version     1.1.2
+@version     1.2.0
 @homepageURL https://github.com/stepanhakobyan/custom-user-scripts
 @updateURL   https://github.com/stepanhakobyan/custom-user-scripts/raw/master/spserver2016-gray-chorme.user.css
 @author      sts
 ==/UserStyle== */
 @-moz-document url-prefix("https://spserver2016.armsoft.am/") {
+    /* Search box */
+    div.ms-srch-sb {
+        background-color: white;
+    }
+
     .ms-core-overlay {
         background-color: #d8d8d8;
     }
@@ -27,11 +32,33 @@
     div.s4-wpcell-plain.ms-webpartzone-cell.ms-webpart-cell-vertical.ms-fullWidth > div.ms-webpart-chrome.ms-webpart-chrome-vertical.ms-webpart-chrome-fullWidth {
         background-color: white;
     }
+    /* առանց border աղյուսակի մեջ  չմտած  վիճակում  */
     div.s4-wpcell.ms-webpartzone-cell.ms-webpart-cell-vertical.ms-fullWidth > div.ms-webpart-chrome.ms-webpart-chrome-vertical.ms-webpart-chrome-fullWidth > div.ms-WPBorderBorderOnly {
         background-color: white;
     }
-
+    
+    /* առանց border աղյուսակի մեջ  մտած  վիճակում  */
+    div.s4-wpActive.ms-webpartzone-cell.ms-webpart-cell-vertical.ms-fullWidth > div.ms-webpart-chrome.ms-webpart-chrome-vertical.ms-webpart-chrome-fullWidth > div.ms-WPBorderBorderOnly {
+        background-color: white;
+    }
+    
+    /* լիստ աղյուսակների ամեն մի կենտ տողը */
     table.ms-listviewtable > tbody > tr:nth-child(2n+1) {
         background-color: white;
     }
+    /* լիստ աղյուսակների ամեն մի զույգ տողը */
+    tr.ms-alternating {
+        background-color: #F2F1EC !important;
+    }
+    
+    /* լիստերի ընտրության հատված  -  "My Reviews" "All Reviews" "Featured Discussions" */
+    .ms-csrlistview-controldiv {
+        background-color: white;
+    }
+    /* լիստերի սյունակների հատված */
+    tr.ms-viewheadertr {
+        background-color: white;
+    }
+    
+    
 }
