@@ -21,11 +21,12 @@ window.addEventListener('load', function() {
             const tfsLinkText = myJson.d["linktotask"];
             console.log("and the link is " + tfsLinkText);
 
-            const titleTag = document.getElementById("DeltaPlaceHolderPageTitleInTitleArea");
-            const parentTag = titleTag.parentNode.parentNode;
-            parentTag.innerHTML = parentTag.innerHTML + tfsLinkText;
+            const titleTag = document.getElementById("pageTitle");
+            const parentTag = titleTag.parentNode;
+            let linkHtml = "<div>" + tfsLinkText + "<span>&nbsp;</span></div>"
+            parentTag.innerHTML = parentTag.innerHTML + linkHtml;
         });
-  });
+    });
   
   
   
