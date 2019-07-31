@@ -13,7 +13,8 @@
     }
 
     .ms-core-overlay {
-        background-color: #d8d8d8;
+        background-color: #cccccc;
+/*         background-color: #666666;  */
     }
     .ms-comm-forumContainer {
         border-collapse: separate;
@@ -63,5 +64,9 @@
     /* կողքի հղումների գույնը   -  "Home", "Անձնական Էջ"... */
     .menu-item-text {
         color: #333333;
+/*         color: #FFFFFF; */
     }
+/*     a.static.selected.menu-item  {
+        background-color: #444444; 
+    } */
 }
