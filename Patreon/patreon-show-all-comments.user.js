@@ -13,8 +13,8 @@ window.addEventListener("load", ()=> {
   mainDiv.prepend(div);
   
   const allComments = document.createElement("div");
-  allComments.innerHTML = "<button onclick='showAllComments(true);'>Show All Comments In New Window</button>"
-  										+ "<button onclick='showAllComments(false);'>Show All Comments In This Window</button>";
+  allComments.innerHTML = "<button onclick='showAllComments(true);'>Show All Comments<br/> In New Window</button>"
+  										+ "<button onclick='showAllComments(false);'>Show All Comments<br/> In This Window</button>";
   div.append(allComments);
   
   const newScript = document.createElement("script");
@@ -23,8 +23,6 @@ window.addEventListener("load", ()=> {
 });
 
 function showAllComments(showInNewWindow) {
-  
-  
   const loc = document.location.href;
   const postId = loc.substring(loc.lastIndexOf("-")+1);			//36881796
   
@@ -66,7 +64,7 @@ function showAllComments(showInNewWindow) {
     	
     	let win = null
     	if (showInNewWindow) {
-        win = window.open("", "All Comments");
+        win = window.open("", "All Comments " + Math.random().toString());
       } else {
         win = window;
         win.document.body.innerHTML = "";
@@ -80,11 +78,17 @@ function showAllComments(showInNewWindow) {
                         + "#mainContainer { padding: 25px; } "
                         + "a { text-decoration: none; font-weight: 700; color: black; } "
                         + "a:hover { text-decoration: underline; } "
+                        + "html { font-family: sans-serif; } "
                         + " "
                         + "@media print { "
                         + "  #mainContainer { padding: 0px; }"
-                        + "} ";
+                        + "} "
+        								+ " ";
         winHead.append(style);
+        
+        let title = win.document.createElement("title");
+        title.innerText = "Show All Comments";
+        winHead.append(title);
         
         const winBody = win.document.body;
         const mainContainer = win.document.createElement("div");
@@ -126,53 +130,52 @@ function showAllComments(showInNewWindow) {
         const repliedCommentIds = [];
         
         const addRowDetails = (item, tbodytr, myJson, commentType) => {
-          	let itemUser = null;
-            if (item.relationships.commenter.data.type == "user") {
-              for (let user of myJson.included) {
-                if (user.id == item.relationships.commenter.data.id && user.type == "user") {
-                  itemUser = user;
-                  break;
-                }
+          let itemUser = null;
+          if (item.relationships.commenter.data.type == "user") {
+            for (let user of myJson.included) {
+              if (user.id == item.relationships.commenter.data.id && user.type == "user") {
+                itemUser = user;
+                break;
               }
             }
+          }
             
-          	let td = win.document.createElement("td");
-            td.innerText = commentType;
-            tbodytr.append(td);
+          let td = win.document.createElement("td");
+          td.innerText = commentType;
+          tbodytr.append(td);
           
-            td = win.document.createElement("td");
-            if (itemUser == null) {
-            	td.innerText = "icon";
-            } else {
-              const img = win.document.createElement("img");
-              img.src = itemUser.attributes.image_url;
-              img.width = 32;
-              img.height = 32;
-              td.append(img);
-            }
-            tbodytr.append(td);
+          td = win.document.createElement("td");
+          if (itemUser == null) {
+            td.innerText = "icon";
+          } else {
+            const img = win.document.createElement("img");
+            img.src = itemUser.attributes.image_url;
+            img.width = 32;
+            img.height = 32;
+            td.append(img);
+          }
+          tbodytr.append(td);
             
-            td = win.document.createElement("td");
-            if (itemUser == null) {
-            	td.innerText = "name";
-            } else {
-              const link = win.document.createElement("a");
-              link.href = itemUser.attributes.url;
-              link.innerText = itemUser.attributes.full_name;
-              td.append(link);
-            }
-            tbodytr.append(td);
+          td = win.document.createElement("td");
+          if (itemUser == null) {
+            td.innerText = "name";
+          } else {
+            const link = win.document.createElement("a");
+            link.href = itemUser.attributes.url;
+            link.innerText = itemUser.attributes.full_name;
+            td.append(link);
+          }
+          tbodytr.append(td);
           
-            td = win.document.createElement("td");
-            tbodytr.append(td);
-            let span = win.document.createElement("span");
-            span.innerText = convertHtml(item.attributes.body)
-            td.append(span);
+          td = win.document.createElement("td");
+          tbodytr.append(td);
+          let span = win.document.createElement("span");
+          span.innerText = convertHtml(item.attributes.body)
+          td.append(span);
           
-          	td = win.document.createElement("td");
-            tbodytr.append(td);
-            td.innerText = (new Date(item.attributes.created)).toLocaleString();
-          
+           td = win.document.createElement("td");
+          tbodytr.append(td);
+          td.innerText = (new Date(item.attributes.created)).toLocaleString();
         };
         
         for (let item of myJson.data) {
@@ -217,11 +220,11 @@ function showAllComments(showInNewWindow) {
           	+ "&json-api-version=1.0";
           
           fetch(replayLongUrl)
-          	.then(function(replyResponse) {
+            .then(function(replyResponse) {
               return replyResponse.json();
             })
-    				.then(function(replyJson) {
-      				console.log(replyJson);
+    	    .then(function(replyJson) {
+      	      console.log(replyJson);
             	
               for (let i = replyJson.data.length - 1; i >= 0; i--) {
                 let item = replyJson.data[i];
@@ -239,7 +242,7 @@ function showAllComments(showInNewWindow) {
                   }
                 }
               }
-          	});
+            });
         }
       }
 
