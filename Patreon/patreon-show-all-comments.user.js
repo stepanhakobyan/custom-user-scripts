@@ -1,8 +1,12 @@
 // ==UserScript==
-// @name     Show all comments
-// @version  1
-// @match    https://www.patreon.com/posts/*
-// @grant    none
+// @name        Show all comments
+// @version     1.1
+// @match       https://www.patreon.com/posts/*
+// @grant       none
+// @icon        https://c5.patreon.com/external/favicon/favicon-32x32.png
+// @updateURL   https://github.com/stepanhakobyan/custom-user-scripts/raw/master/Patreon/patreon-show-all-comments.user.js
+// @downloadURL https://github.com/stepanhakobyan/custom-user-scripts/raw/master/Patreon/patreon-show-all-comments.user.js
+// @homepageURL https://github.com/stepanhakobyan/custom-user-scripts/tree/master/Patreon
 // ==/UserScript==
 
 
