@@ -1,35 +1,53 @@
 /* ==UserStyle==
 @name        TFS2015 Gray Chrome
 @namespace   Hmm1
-@version     1.0.0
+@version     1.0.1
 @homepageURL https://github.com/stepanhakobyan/custom-user-scripts
 @updateURL   https://github.com/stepanhakobyan/custom-user-scripts/raw/master/tfs2015-gray-chrome.user.css
 @author      sts
 ==/UserStyle== */
-@-moz-document url-prefix("http://tfserver:8080/tfs/Armsoft/") {
+@-moz-document url-prefix("http://tfserver:8080/armsoft/") {
+
+    /*սա ցույց տրվող work item-ի պատուհանի մեջ մուտքագրվող դաշտերի եզրերի մքացման համար է։*/    
     .work-item-form-main .work-item-control.chromeBorder .combo,
     .work-item-form-main .work-item-control.chromeBorder.identity-picker-container:not(.readonly),
     .work-item-control > .input-text-box {
         border: 1px solid gray;
     }
-    
+
+    /*սա ցույց տրվող work item-ի պատուհանի ֆոնի գունավորման համար է։*/    
+    .work-item-form.work-item-form-main.no-headertoolbar
+    {
+        background-color: #d8d8d8;
+    }
+    /*սա դիալոգով ցույց տրվող work item-ի պատուհանի ֆոնի գունավորման համար է։*/    
+    .ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-front.workitem-dialog.new-workitem-dialog.ui-dialog-legacy.ui-dialog-buttons {
+        background-color: #d8d8d8;
+    }
+
+    /*սա ցույց տրվող work item-ի պատուհանի մեջտեղի մասի ֆոնի գունավորման համար է։*/    
     .section-container,
     .work-item-form-main-core,
     .hotkey-section {
-        background-color: #d8d8d8;
+        background-color: inherit;
+    }
+
+    /*սա work item-ի պատուհանիմեջտեղի թաբերի ձախ կողմում ցույց տալու համար է։*/
+    .work-item-responsive-header-right {
+        margin-left: inherit !important;
+    }
+    .work-item-responsive-header {
+        flex: inherit;
     }
     
-    .left-section,
-    .right-section {
-        background-color: #bbbbbb;
+    /*սա բան չի անում*/
+    .work-item-responsive-header .work-item-responsive-header-right {
+        align-self: auto;
     }
     
-    /* body, .hub-content, .vss_13, .content-section, .main, .main-container */
-    .content-section {
-        background-color: #d8d8d8;
-    }
-    
-    .handleBar {
-        border: 1px solid black !important;
-    }
+    /*այս երեքը գրում են տեքստերը նկարների փոխարեն՝ History, Links, Attachments։*/
+    .page-button.icon.bowtie-icon.bowtie-navigate-history::before { content: "\e9ff  History"; }
+    .page-button.icon.bowtie-icon.bowtie-link::before { content: "\e955  Links"; }
+    .page-button.icon.bowtie-icon.bowtie-attach::before { content: "\e954  Attachments"; }
+    .icon { width: auto; }
 }
